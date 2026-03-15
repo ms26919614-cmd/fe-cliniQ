@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+:root {
+  --foreground: #0f172a;
+  --background: #f0f9ff;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
