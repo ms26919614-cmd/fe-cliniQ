@@ -3,14 +3,13 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '@/lib/auth-context';
 import { useRouter } from 'next/navigation';
-import { Activity, Stethoscope, Building2, Loader2 } from 'lucide-react';
+import { Activity, Loader2 } from 'lucide-react';
 
 export default function LoginPage() {
   const { user, login, isLoading: authLoading } = useAuth();
   const router = useRouter();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState<'DOCTOR' | 'RECEPTIONIST'>('DOCTOR');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -71,34 +70,6 @@ export default function LoginPage() {
 
           <h2 className="text-3xl font-bold text-slate-900 mb-1">Welcome Back</h2>
           <p className="text-slate-500 text-sm mb-8">Sign in to access the clinic portal</p>
-
-          {/* Role Toggle */}
-          <div className="flex gap-3 mb-6">
-            <button
-              type="button"
-              onClick={() => setRole('DOCTOR')}
-              className={`flex-1 py-3.5 rounded-xl text-center transition-all border-2 ${
-                role === 'DOCTOR'
-                  ? 'border-cyan-600 bg-cyan-50 shadow-sm shadow-cyan-100'
-                  : 'border-slate-200 bg-slate-50 hover:border-cyan-300'
-              }`}
-            >
-              <Stethoscope className={`w-6 h-6 mx-auto mb-1 ${role === 'DOCTOR' ? 'text-cyan-600' : 'text-slate-400'}`} />
-              <span className={`text-xs font-semibold ${role === 'DOCTOR' ? 'text-cyan-700' : 'text-slate-500'}`}>Doctor</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => setRole('RECEPTIONIST')}
-              className={`flex-1 py-3.5 rounded-xl text-center transition-all border-2 ${
-                role === 'RECEPTIONIST'
-                  ? 'border-cyan-600 bg-cyan-50 shadow-sm shadow-cyan-100'
-                  : 'border-slate-200 bg-slate-50 hover:border-cyan-300'
-              }`}
-            >
-              <Building2 className={`w-6 h-6 mx-auto mb-1 ${role === 'RECEPTIONIST' ? 'text-cyan-600' : 'text-slate-400'}`} />
-              <span className={`text-xs font-semibold ${role === 'RECEPTIONIST' ? 'text-cyan-700' : 'text-slate-500'}`}>Receptionist</span>
-            </button>
-          </div>
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-5">
