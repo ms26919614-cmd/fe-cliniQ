@@ -4,7 +4,7 @@ import { useAuth } from '@/lib/auth-context';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import {
-  LayoutDashboard, Users, Tag, Monitor, Settings, LogOut, Activity,
+  LayoutDashboard, Monitor, Settings, LogOut, Activity,
   CalendarDays,
 } from 'lucide-react';
 
@@ -36,7 +36,6 @@ export default function Sidebar() {
         {
           title: 'Queue',
           items: [
-            { label: 'Manage Queue', href: '/doctor/queue', icon: Users },
             { label: 'Queue Display', href: '/queue', icon: Monitor },
           ],
         },
@@ -57,8 +56,6 @@ export default function Sidebar() {
         {
           title: 'Queue',
           items: [
-            { label: 'Register Patient', href: '/receptionist/register', icon: Users },
-            { label: 'Today\'s Queue', href: '/receptionist/queue', icon: Tag },
             { label: 'Queue Display', href: '/queue', icon: Monitor },
           ],
         },
